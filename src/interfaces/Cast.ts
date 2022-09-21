@@ -1,4 +1,4 @@
-interface Cast {
+export interface Cast {
   body: {
     publishedAt: number
     username: string

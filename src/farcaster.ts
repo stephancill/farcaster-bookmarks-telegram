@@ -1,4 +1,5 @@
 import fetch from "node-fetch"
+import { Cast } from "./interfaces/Cast"
 
 export async function resolveCast(uri: string) {
   // Sample uri: farcaster://casts/0x7edd63feca403ffa9d340f4eb8b9bc9175634716a39909c27ec0d9b5aca6626b/0x7edd63feca403ffa9d340f4eb8b9bc9175634716a39909c27ec0d9b5aca6626b
@@ -17,7 +18,8 @@ export async function resolveCast(uri: string) {
   const messageComponents = [`<b>${cast.meta.displayName}</b> (<i>${cast.body.username}</i>):`]
 
   // if replying
-  if (cast.meta.replyParentUsername) {
+  if (cast.meta.replyParentUsername?.username) {
+    console.log(cast)
     messageComponents[0] = `<b>${cast.meta.displayName}</b> (<i>${cast.body.username}</i>)\n<i>in reply to ${cast.meta.replyParentUsername.username}</i>:`
   }
 

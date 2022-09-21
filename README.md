@@ -1,6 +1,6 @@
 # Farcaster Bookmarks Bot
 
-Telegram bot that parses URIs from the Farcaster app, parses them and returns them as human readable text.
+Telegram bot that parses URIs from the Farcaster app and returns them as human readable text for easy bookmarking.
 
 ## Usage
 
@@ -8,10 +8,10 @@ The bot is currently running on Telegram as [@castbookmarkbot](https://t.me/cast
 
 ## Running the bot
 
-Copy the `sample.env` file to `.env` and fill in the values.
+Copy the `.sample.env` file to `.env` and fill in the values.
 
 ```bash
-cp sample.env .env
+cp .sample.env .env
 ```
 
 Install yarn dependencies
