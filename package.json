@@ -17,8 +17,5 @@
   "scripts": {
     "start": "yarn ts-node src/bot.ts",
     "postinstall": "yarn tsc"
-  },
-  "engines": {
-    "node": "16.13.0"
   }
 }

@@ -6,7 +6,8 @@ export async function resolveCast(uri: string) {
   // farcaster://casts/0x5f820962e0a0e06dca7df5d5888bf02d7fc1d165c36a6f358c4e6c9d290dfb30/0x5f820962e0a0e06dca7df5d5888bf02d7fc1d165c36a6f358c4e6c9d290dfb30
   // https://searchcaster.xyz/api/search?merkleRoot=0x7edd63feca403ffa9d340f4eb8b9bc9175634716a39909c27ec0d9b5aca6626b
 
-  const merkleRoot = uri.split("/").pop()
+  // Get second last element
+  const merkleRoot = uri.split("//")[1].split("/")[1]
   const response = await fetch(`https://searchcaster.xyz/api/search?merkleRoot=${merkleRoot}`)
   const json = (await response.json()) as any
   const cast = json?.casts.pop() as Cast
@@ -19,7 +20,6 @@ export async function resolveCast(uri: string) {
 
   // if replying
   if (cast.meta.replyParentUsername?.username) {
-    console.log(cast)
     messageComponents[0] = `<b>${cast.meta.displayName}</b> (<i>${cast.body.username}</i>)\n<i>in reply to ${cast.meta.replyParentUsername.username}</i>:`
   }
 
